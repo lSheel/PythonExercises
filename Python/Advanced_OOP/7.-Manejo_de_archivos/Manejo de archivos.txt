@@ -1,0 +1,92 @@
+#Modo texto	Modo binario	Descripción
+#rt	            rb	        lectura
+#wt	            wb	        escritura
+#at	            ab	         adjuntar
+#r+t	        r+b	        leer y actualizar
+#w+t	        w+b	        escribir y actualizar
+
+Cerrando streams
+La última operación realizada en un stream (esto no incluye a los streams stdin, stdout, y stderr pues no lo requieren) debe ser cerrarlo.
+
+Esa acción se realiza mediante un método invocado desde dentro del objeto del stream: stream.close().
+
+El nombre de la función es fácil de entender close(), es decir cerrar.
+La función no espera argumentos; el stream no necesita estar abierto.
+La función no devuelve nada pero lanza una excepción IOError en caso de un error.
+La mayoría de los desarrolladores creen que la función close() siempre tiene éxito y, por lo tanto, no hay necesidad de verificar si ha realizado su tarea correctamente.
+
+Esta creencia está solo parcialmente justificada. Si el stream se abrió para escribir y luego se realizó una serie de operaciones de escritura, puede ocurrir que los datos enviados al stream aún no se hayan transferido al dispositivo físico (debido a los mecanismos de cache o buffer). Dado que el cierre del stream obliga a los búferes a descargarse, es posible que dichas descargas fallen y, por lo tanto, close() falle también.
+Ya hemos mencionado fallas causadas por funciones que operan con los streams, pero no mencionamos nada sobre cómo podemos identificar exactamente la causa de la falla.
+
+La posibilidad de hacer un diagnóstico existe y es proporcionada por uno de los componentes de excepción de los streams.
+
+Diagnosticando problemas con los streams
+El objeto IOError está equipado con una propiedad llamada errno (el nombre viene de la frase error number, número de error) y puedes accederla de la siguiente manera:
+
+try:
+    # operaciones con streams
+except IOError as exc:
+    print(exc.errno)
+
+El valor del atributo errno se puede comparar con una de las constantes simbólicas predefinidas en módulo errno.
+
+#######ERRORES#####
+
+Echemos un vistazo a algunas constantes seleccionadas útiles para detectar errores de flujo:
+
+errno.EACCES → Permiso denegado
+
+El error se produce cuando intentas, por ejemplo, abrir un archivo con atributos de solo lectura para abrirlo.
+
+
+errno.EBADF → Número de archivo incorrecto
+
+El error se produce cuando intentas, por ejemplo, operar un stream sin abrirlo.
+
+errno.EEXIST → Archivo existente
+
+El error se produce cuando intentas, por ejemplo, cambiar el nombre de un archivo con su nombre anterior.
+
+
+errno.EFBIG → Archivo demasiado grande
+
+El error ocurre cuando intentas crear un archivo que es más grande que el máximo permitido por el sistema operativo.
+
+
+errno.EISDIR → Es un directorio
+
+El error se produce cuando intentas tratar un nombre de directorio como el nombre de un archivo ordinario.
+
+
+errno.EMFILE → Demasiados archivos abiertos
+
+El error se produce cuando intentas abrir simultáneamente más streams de los aceptables para el sistema operativo.
+
+
+errno.ENOENT → El archivo o directorio no existe
+
+El error se produce cuando intentas acceder a un archivo o directorio inexistente.
+
+
+errno.ENOSPC → no queda espacio en el dispositivo
+
+El error ocurre cuando no hay espacio libre en el dispositivo.
+
+
+La lista completa es mucho más larga (incluye también algunos códigos de error no relacionados con el procesamiento del stream).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+#Para detectar la causa de la excepción RocketNotReadyError, debe acceder al atributo __cause__
+# del objeto RocketNotReadyError. Ejecute el código en el panel derecho y examine el resultado.
+# Esta vez, el informe se gestiona de forma segura y puede estar seguro de que está haciendo un buen trabajo.
+
+
+class RocketNotReadyError(Exception):
+    pass
+
+
+def personnel_check():
+    try:
+        print("\tThe captain's name is", crew[0])
+        print("\tThe pilot's name is", crew[1])
+        print("\tThe mechanic's name is", crew[2])
+        print("\tThe navigator's name is", crew[3])
+    except IndexError as e:
+        raise RocketNotReadyError('Crew is incomplete') from e
+
+crew = ['John', 'Mary', 'Mike']
+print('Final check procedure')
+
+try:
+    personnel_check()
+except RocketNotReadyError as f:
+    print('General exception: "{}", caused by "{}"'.format(f, f.__cause__))

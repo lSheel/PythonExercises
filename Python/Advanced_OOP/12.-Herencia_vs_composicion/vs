@@ -1,0 +1,30 @@
+La herencia modela lo que se llama una relación.
+Ejemplos:
+
+una computadora portátil es una (forma especializada de) computadora;
+Un Cuadrado es una (forma especializada de) Figura;
+un aerodeslizador es un vehículo.
+
+La herencia no es la única forma de construir objetos adaptables. Puede lograr objetivos similares mediante el
+uso de un concepto llamado composición.
+
+Este concepto modela otro tipo de relación entre objetos; modela lo que está llamado a tener una relación.
+
+Ejemplos:
+
+una computadora portátil tiene una tarjeta de red;
+un aerodeslizador tiene un motor específico.
+
+¿Qué debo elegir?
+Antes de responder la pregunta, mencionemos algunas cosas más:
+-La herencia y la composición no se excluyen mutuamente. Los problemas de la vida real difícilmente son todos los
+    casos puros de “es un” o “tiene un”;
+-Tratar tanto la herencia como la composición como medios complementarios para resolver problemas;
+-No hay nada de malo en componer objetos de ... clases que fueron construidas usando herencia.
+
+
+El codigo hervscomp.py Es un ejemplo de como implementar ambos conceptos.
+Siempre debe examinar el problema que su código está a punto de resolver antes de comenzar a codificar.
+Si el problema se puede modelar utilizando una relación "es un", entonces se debe implementar el enfoque de herencia.
+De lo contrario, si el problema se puede modelar utilizando una relación "tiene un", entonces la elección es clara:
+la composición es la solución. No dude en experimentar y volver a implementar su solución.
