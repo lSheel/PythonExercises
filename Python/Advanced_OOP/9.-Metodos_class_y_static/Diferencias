@@ -1,0 +1,7 @@
+Uso de métodos estáticos y de clase: comparación
+
+-Un método de clase requiere 'cls' como primer parámetro y un método estático no;
+-Un método de clase tiene la capacidad de acceder al estado o métodos de la clase, y un método estático no;
+-Un método de clase está decorado por '@classmethod' y un método estático por '@staticmethod';
+-Un método de clase se puede usar como una forma alternativa de crear objetos, y un método estático es solo un
+    método de utilidad.
