@@ -8,5 +8,6 @@ def printExcTree(thisclass, nest = 0):
 
     for subclass in thisclass.__subclasses__():
         printExcTree(subclass, nest + 1)
-
+#Imprime todo los tipos de excepciones
 printExcTree(BaseException)
+
