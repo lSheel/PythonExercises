@@ -1,0 +1,11 @@
+Serialización de objetos Python usando el módulo shelve
+
+ Como recordará, el módulo pickle se utiliza para serializar objetos como una secuencia de un solo byte.
+ Tanto las partes de serialización como de deserialización deben cumplir con el orden de todos los elementos
+ colocados en un archivo o base de datos, o enviados a través de una red.
+
+ Hay otro módulo útil, llamado shelve, que se construye sobre pickle e implementa un diccionario de serialización
+ donde los objetos son decapados y asociados con una clave. Las claves deben ser cadenas normales, porque la base de
+ datos subyacente (dbm) requiere cadenas. Por lo tanto, puede abrir su archivo de datos guardado y acceder a sus
+ objetos en escabeche a través de las claves de la misma manera que lo hace cuando accede a los diccionarios de
+ Python. Esto podría ser más conveniente para usted cuando esté serializando muchos objetos.

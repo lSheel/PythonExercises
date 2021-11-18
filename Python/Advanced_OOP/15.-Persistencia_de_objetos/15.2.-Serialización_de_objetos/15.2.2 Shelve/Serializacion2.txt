@@ -1,0 +1,24 @@
+Debe tratar un objeto de estantería como un diccionario de Python, con algunas notas adicionales:
+
+Las claves deben ser cadenas;
+Python coloca los cambios en un búfer que se descarga periódicamente en el disco. Para forzar un vaciado inmediato,
+llame al método sync () en su objeto shelve;
+cuando llama al método close () en un objeto shelve, también vacía los búferes.
+
+Cuando trata un objeto de estantería como un diccionario de Python, puede hacer uso de las utilidades del diccionario:
+la función len ();
+el operador in;
+los métodos keys () yitems ();
+la operación de actualización, que funciona igual que cuando se aplica a un diccionario de Python;
+la instrucción del, utilizada para eliminar un par clave-valor.
+
+
+Después de ejecutar el código, notará además que se crean algunos archivos para admitir la base de datos.
+No intente alterar esos archivos con utilidades externas, ya que su estantería puede volverse incoherente y
+provocar errores de lectura / escritura.
+
+El uso de shelve es realmente fácil y eficaz. Además, debe saber que puede simular el shelve con pickling todo el
+diccionario, pero el módulo shelve utiliza la memoria de manera más eficiente, por lo que siempre que
+necesite acceder a objetos en pickled, utilice un shelve. Y el comentario final es:
+Debido a que el  módulo de shelve está respaldado por pickled, no es seguro cargar un shelve de una
+fuente que no sea de confianza. Al igual que con pickle, cargar un estante puede ejecutar código arbitrario.

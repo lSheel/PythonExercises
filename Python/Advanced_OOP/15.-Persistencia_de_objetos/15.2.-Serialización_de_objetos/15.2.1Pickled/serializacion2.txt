@@ -1,0 +1,16 @@
+ Recuerde que los intentos de encurtir objetos que no se pueden encurtir generarán la excepción
+ PicklingError. Tratar de seleccionar una estructura de datos altamente recursiva (tenga en cuenta los ciclos)
+ puede exceder la profundidad máxima de recursividad, y se generará una excepción RecursionError en tales casos.
+
+ Tenga en cuenta que las funciones (tanto integradas como definidas por el usuario) se seleccionan por su referencia
+ de nombre, no por ningún valor. Esto significa que solo se selecciona el nombre de la función;
+ ni el código de la función ni ninguno de sus atributos de función se conservan en vinagre. De manera similar,
+ las clases se seleccionan por referencia con nombre, por lo que se aplican las mismas restricciones en el entorno de eliminación.
+ Tenga en cuenta que ninguno de los datos o el código de la clase se conservan en vinagre.
+
+
+ Esto se hace a propósito, por lo que puede corregir errores en una clase o agregar métodos a la clase,
+ y aún así cargar objetos que fueron creados con una versión anterior de la clase. Por lo tanto, su función
+ es asegurarse de que el entorno en el que la clase o función se elimine sea capaz de importar la definición de
+ la clase o función. En otras palabras, la función o clase debe estar disponible en el espacio de nombres de su
+ código leyendo el archivo pickle. De lo contrario, se generará una excepción AtrributeError.

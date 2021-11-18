@@ -1,0 +1,19 @@
+#El pickling es el proceso de preservar o extender la vida útil de los alimentos.
+# El alimento resultante se llama encurtido y, para evitar ambigüedades, se introduce el adjetivo "encurtido".
+
+#En Python, la serialización de objetos es el proceso de convertir una estructura de objeto en un flujo de bytes
+# para almacenar el objeto en un archivo o base de datos, o para transmitirlo a través de una red.
+# Este flujo de bytes contiene toda la información necesaria para reconstruir el objeto en otro script de Python.
+
+#Este proceso inverso se llama deserialización.
+# Los objetos de Python también se pueden serializar usando un módulo llamado 'pickle', y usando este módulo, puede
+# 'pickle' sus objetos de Python para su uso posterior.
+
+#El módulo 'pickle' es un módulo muy popular y conveniente para la serialización de datos en el mundo de los
+# Pythonistas. Entonces, ¿qué se puede encurtir y luego despegar? Los siguientes tipos se pueden encurtir:
+# Ninguno, booleanos;
+# enteros, números de coma flotante, números complejos;
+# cadenas, bytes, bytearrays;
+# tuplas, listas, conjuntos y diccionarios que contienen objetos encurtidos;
+# objetos, incluidos objetos con referencias a otros objetos (¡recuerde evitar ciclos!) referencias a funciones y
+# clases, pero no sus definiciones.
