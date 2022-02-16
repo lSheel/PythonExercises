@@ -1,0 +1,31 @@
+Metaclases
+
+La metaprogramación es una técnica de programación en la que los programas de computadora tienen la capacidad de modificar sus propios códigos o los de otros
+programas.
+
+Para Python, las modificaciones de código pueden ocurrir mientras se ejecuta el código, y es posible que
+ya lo haya experimentado al implementar decoradores, anular operadores o incluso implementar el protocolo
+de propiedades
+
+Pero lo cierto es que esta técnica podría utilizarse para la preparación de herramientas; esas herramientas podrían
+aplicarse a su código para que siga patrones de programación específicos, o para ayudarlo a crear una API coherente
+(Interfaz de programación de aplicaciones).
+
+En Python, una metaclase es una clase cuyas instancias son clases. Así como una clase ordinaria define el
+comportamiento de ciertos objetos, una metaclase permite la personalización de la instanciación de clases.
+
+La funcionalidad de la metaclase coincide en parte con la de los decoradores de clases, pero las metaclases
+actúan de manera diferente a los decoradores:
+Los decoradores vinculan los nombres de funciones o clases decoradas a nuevos objetos invocables.
+    Los decoradores de clases se aplican cuando se crean instancias de clases;
+Las metaclases redirigen las instancias de clases a una lógica dedicada, contenida en metaclases.
+    Las metaclases se aplican cuando se leen las definiciones de clases para crear clases, mucho antes de que
+    se creen instancias de clases.
+
+Las metaclases generalmente entran en juego cuando programamos módulos o marcos avanzados, donde se debe
+proporcionar mucha automatización precisa. Los casos de uso típicos de las metaclases:
+ Inicio sesión;
+ Registro de clases en el momento de la creación;
+ Comprobación de interfaz;
+ Agregar automáticamente nuevos métodos;
+ Agregando automáticamente nuevas variables.
